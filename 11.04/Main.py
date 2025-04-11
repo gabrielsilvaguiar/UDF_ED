@@ -16,12 +16,13 @@ def adicionar_a_fila(tipo_atendimento, tipoFila):
 
 def verificar_horario():
     agora = datetime.now()
-    return agora.hour < 18  # Retorna True se for antes das 18 horas
+    return agora.hour < 18
 
 print("\n------Bem-vindo(a) a UBS-UDF------")
-print("\n1-Clinico Geral \n2-Genecologia \n3-Pediatria \n4-Geriatria \n5-Ortopedia")
 
-if verificar_horario():
+while verificar_horario():
+    print("\n1-Clinico Geral \n2-Genecologia \n3-Pediatria \n4-Geriatria \n5-Ortopedia")
+    
     total = int(input("\nQual é o tipo de atendimento que você deseja? "))
 
     if total == 1:
@@ -46,8 +47,7 @@ if verificar_horario():
             adicionar_a_fila(tipo_atendimento, 'normal')
         else:
             print("Resposta inválida. Por favor, responda com 's' ou 'n'.")
-else:
-    print("Desculpe, não estamos emitindo senhas após as 18 horas.")
 
+print("Desculpe, não estamos emitindo senhas após as 18 horas.")
 print("Fila Preferencial:", filaPreferencial)
 print("Fila Normal:", filaNormal)
